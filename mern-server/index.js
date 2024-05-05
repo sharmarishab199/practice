@@ -9,7 +9,7 @@ app.use(express.json())
 
 //connection to DB
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const uri = "mongodb+srv://rishab:rishab@cluster0.oocmw0r.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://rishab:rishab@cluster0.nk2qouy.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
