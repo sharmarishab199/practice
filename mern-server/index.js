@@ -1,6 +1,6 @@
 const express=require("express")
 const app=express()
-const port =process.env.PORT||5000
+const port =process.env.PORT || 5000
 const cors=require("cors")
 
 //middleware
@@ -90,6 +90,17 @@ run().catch(console.dir);
 app.get('/',(req,res)=>{
     res.send('Hello W')
 })
+
+
+// deployment config
+const path = require('path');
+__dirname = path.resolve();
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '/mern-client/dist')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'mern-client', 'dist', 'index.html'));
+    })
+}
 
 app.listen(port,()=>{
     console.log(`listned on ${port}`)
